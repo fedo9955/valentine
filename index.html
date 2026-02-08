@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Important Question ❤️</title>
 
+<style>
+body{
+  font-family: Arial, sans-serif;
+  text-align:center;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+  overflow:hidden;
+  height:100vh;
+}
+
+h1{
+  margin-top:80px;
+  font-size:32px;
+}
+
+p{
+  font-size:20px;
+}
+
+button{
+  padding:15px 25px;
+  font-size:20px;
+  border:none;
+  border-radius:12px;
+  margin:15px;
+  cursor:pointer;
+}
+
+#yesBtn{
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+}
+
+#noBtn{
+  background:#222;
+  color:white;
+  position:relative;
+}
+
+.heart{
+  position:absolute;
+  color:white;
+  font-size:20px;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
+}
+
+#celebrate{
+  display:none;
+  font-size:28px;
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hey Beautiful ❤️</h1>
+<p>I have one very important question for you…</p>
+<h2>Will you be my Valentine? 💘</h2>
+
+<button id="yesBtn" onclick="yesClicked()">YES 😍</button>
+<button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+
+<div id="celebrate">
+🎉 SHE SAID YES!!! ❤️🔥<br>
+Best decision ever 😎
+</div>
+
+<script>
+function yesClicked(){
+  document.getElementById("celebrate").style.display="block";
+  launchHearts();
+}
+
+function moveNo(){
+  let btn=document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.top=Math.random()*window.innerHeight+"px";
+  btn.style.left=Math.random()*window.innerWidth+"px";
+}
+
+function launchHearts(){
+  setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  },300);
+}
+</script>
+
+</body>
+</html>
